@@ -1,0 +1,15 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "duakilo.net"
+
+[params.author]
+name = "Heri"
+image = "img/avatar.jpg"        # taruh foto di assets/img/
+headline = "Tech · Coding · Ideas"
+bio = "Developer. Writing about things I learn."
+links = [
+  { github = "https://github.com/username" },
+  { twitter = "https://twitter.com/username" },
+  { email = "mailto:kamu@email.com" }
+]
