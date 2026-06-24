@@ -60,6 +60,7 @@ cardView = false
   showReadingTime = false
   showWordCount = false
   showZenMode = false
+  showComments = true
 
 [list]
   showHero = false

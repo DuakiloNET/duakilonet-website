@@ -1,0 +1,27 @@
+{{ if and (not hugo.IsServer) (or (.Params.showComments | default (.Site.Params.article.showComments | default false))) }}
+<!--
+  Giscus comments via GitHub Discussions.
+
+  Setup required:
+  1. Install https://github.com/apps/giscus on DuakiloNET/duakilonet-website
+  2. Enable Discussions in repo settings
+  3. Go to https://giscus.app/ and generate your data-repo-id and data-category-id
+  4. Paste those values below (replace the empty strings)
+-->
+<script src="https://giscus.app/client.js"
+  data-repo="DuakiloNET/duakilonet-website"
+  data-repo-id=""
+  data-category="Comments"
+  data-category-id=""
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+{{ end }}
