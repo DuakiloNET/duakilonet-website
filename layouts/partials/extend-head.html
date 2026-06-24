@@ -1,0 +1,20 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="reading-progress"></div>
+<script>
+(function() {
+  var bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function update() {
+    var scrolled = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrolled / Math.max(max, 1) * 100) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+</script>

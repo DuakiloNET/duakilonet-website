@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>duakilo.net — Design Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg: #0B0F19;
+      --bg-elevated: rgba(17, 24, 39, 0.7);
+      --accent: #10B981;
+      --accent-dim: #059669;
+      --text: #F9FAFB;
+      --text-secondary: #9CA3AF;
+      --text-muted: #6B7280;
+      --border: rgba(255, 255, 255, 0.05);
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Animated mesh background */
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(52, 211, 153, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 60% at 50% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
+      animation: meshMove 20s ease-in-out infinite;
+    }
+    
+    @keyframes meshMove {
+      0%, 100% { background-position: 0% 50%, 100% 0%, 50% 100%; }
+      50% { background-position: 100% 50%, 0% 100%, 50% 0%; }
+    }
+    
+    /* Floating pill nav */
+    .nav-pill {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      z-index: 100;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-pill a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-pill a:hover,
+    .nav-pill a.active {
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.1);
+    }
+    
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .hero-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #10B981 0%, #34D399 40%, #6EE7B7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-tagline {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+    
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .hero-links a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    
+    .hero-links a:hover {
+      color: var(--accent);
+    }
+    
+    /* Section */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .section-title::before {
+      content: '>';
+      color: var(--accent);
+    }
+    
+    /* Glass cards */
+    .card-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    
+    .glass-card {
+      background: var(--bg-elevated);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .glass-card:hover {
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.06);
+      transform: translateY(-3px);
+    }
+    
+    .card-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    
+    .card-meta span::before {
+      content: '·';
+      margin-right: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .card-meta span:first-child::before {
+      content: none;
+    }
+    
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .neon-tag {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+    }
+    
+    .glass-card:hover .neon-tag {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+    
+    .card-excerpt {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    
+    /* Terminal code block preview */
+    .code-preview {
+      margin-top: 3rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #30363D;
+    }
+    
+    .code-header {
+      background: #161B22;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    .code-dot:nth-child(1) { background: #FF5F56; }
+    .code-dot:nth-child(2) { background: #FFBD2E; }
+    .code-dot:nth-child(3) { background: #27C93F; }
+    
+    .code-body {
+      background: #0D1117;
+      padding: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+    
+    .code-body .kw { color: #FF7B72; }
+    .code-body .fn { color: #D2A8FF; }
+    .code-body .str { color: #A5D6FF; }
+    .code-body .cm { color: #8B949E; }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+    
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .glass-card:nth-child(1) { animation-delay: 0.1s; }
+    .glass-card:nth-child(2) { animation-delay: 0.2s; }
+    .glass-card:nth-child(3) { animation-delay: 0.3s; }
+    
+    /* Reading progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #10B981, #34D399);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress"></div>
+  <div class="mesh-bg"></div>
+  
+  <nav class="nav-pill">
+    <a href="#" class="active">Blog</a>
+    <a href="#">Tags</a>
+    <a href="#">About</a>
+    <a href="#">⌕</a>
+  </nav>
+  
+  <section class="hero">
+    <h1 class="hero-name">Heri</h1>
+    <p class="hero-tagline">Tech · Coding · Ideas</p>
+    <p class="hero-bio">Developer. Writing about things I learn. No fluff. No listicles. Just honest technical writing.</p>
+    <div class="hero-links">
+      <a href="#">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2 class="section-title">Recent Posts</h2>
+    
+    <div class="card-grid">
+      <article class="glass-card reveal">
+        <h3 class="card-title">Setup Environment Python Dev Modern: pyenv + uv + VS Code</h3>
+        <div class="card-meta">
+          <span>21 June 2026</span>
+          <span>1326 words</span>
+          <span>7 mins</span>
+        </div>
+        <div class="card-tags">
+          <span class="neon-tag">Python</span>
+          <span class="neon-tag">Dev-Tools</span>
+          <span class="neon-tag">uv</span>
+        </div>
+        <p class="card-excerpt">Tiap kali mulai project Python baru, ada satu pertanyaan yang selalu muncul: versi Python yang mana, dan environment-nya diisolasi pakai apa?</p>
+      </article>
+      
+      <article class="glass-card reveal">
+        <h3 class="card-title">Claude API vs OpenAI API: A Python Developer's Honest Comparison</h3>
+        <div class="card-meta">
+          <span>16 June 2026</span>
+          <span>746 words</span>
+          <span>4 mins</span>
+        </div>
+        <div class="card-tags">
+          <span class="neon-tag">AI-Dev</span>
+          <span class="neon-tag">Claude</span>
+          <span class="neon-tag">OpenAI</span>
+        </div>
+        <p class="card-excerpt">Kalau kamu developer Python yang baru mulai eksplorasi LLM API, pertanyaan pertama biasanya sama: Claude atau OpenAI?</p>
+      </article>
+      
+      <article class="glass-card reveal">
+        <h3 class="card-title">Git Rebase vs Merge: Stop Guessing, Start Choosing</h3>
+        <div class="card-meta">
+          <span>13 June 2026</span>
+          <span>717 words</span>
+          <span>4 mins</span>
+        </div>
+        <div class="card-tags">
+          <span class="neon-tag">Git</span>
+          <span class="neon-tag">Workflow</span>
+          <span class="neon-tag">Tutorial</span>
+        </div>
+        <p class="card-excerpt">If you've used Git for more than a week, you've run into this moment: you're on a feature branch, the main branch has moved ahead.</p>
+      </article>
+    </div>
+    
+    <div class="code-preview">
+      <div class="code-header">
+        <div class="code-dot"></div>
+        <div class="code-dot"></div>
+        <div class="code-dot"></div>
+      </div>
+      <div class="code-body">
+<span class="cm"># Example of the terminal-style code blocks</span>
+<span class="kw">import</span> anthropic
+
+client = anthropic.Anthropic()
+response = client.messages.<span class="fn">create</span>(
+    model=<span class="str">"claude-opus-4-8"</span>,
+    max_tokens=<span class="str">1024</span>,
+    messages=[{<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"Hello"</span>}]
+)
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>© 2026 Heri · duakilo.net</p>
+  </footer>
+  
+  <script>
+    // Reading progress
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('progress').style.width = (scrolled / max * 100) + '%';
+    });
+  </script>
+</body>
+</html>

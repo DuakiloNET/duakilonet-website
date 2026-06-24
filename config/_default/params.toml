@@ -11,7 +11,7 @@ replyByEmail = false
 
 disableImageOptimization = false
 disableImageOptimizationMD = false
-disableTextInHeader = false
+disableTextInHeader = true
 
 hotlinkFeatureImage = false
 
@@ -36,7 +36,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showRecentItems = 5
   showMoreLink = true
   showMoreLinkDest = "/posts/"
-  cardView = false
+cardView = true
   cardViewScreenWidth = false
 
 [article]
