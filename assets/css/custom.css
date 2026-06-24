@@ -1,0 +1,21 @@
+/* Minimal Developer — custom tweaks for duakilo.net */
+
+/* Slightly larger code blocks for readability */
+.prose pre {
+  font-size: 0.875rem;
+}
+
+/* Better tag/badge styling */
+.article-tags a {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle card hover lift */
+.article-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+}
