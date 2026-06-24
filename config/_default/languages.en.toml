@@ -10,5 +10,4 @@ headline = "Tech · Coding · Ideas"
 bio = "Developer. Writing about things I learn."
 links = [
   { github = "https://github.com/int2k" },
-  { email = "mailto:myself@duakilo.net" }
 ]
