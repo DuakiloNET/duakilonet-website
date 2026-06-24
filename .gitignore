@@ -14,3 +14,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+# Agent skills ecosystem
+.agents/
+.claude/
+skills-lock.json
