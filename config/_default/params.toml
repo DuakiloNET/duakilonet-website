@@ -1,6 +1,6 @@
 colorScheme = "slate"
-defaultAppearance = "dark"
-autoSwitchAppearance = true
+defaultAppearance = "light"
+autoSwitchAppearance = false
 
 enableA11y = false
 enableSearch = true
@@ -11,7 +11,7 @@ replyByEmail = false
 
 disableImageOptimization = false
 disableImageOptimizationMD = false
-disableTextInHeader = true
+disableTextInHeader = false
 
 hotlinkFeatureImage = false
 

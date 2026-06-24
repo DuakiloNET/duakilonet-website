@@ -1,102 +1,103 @@
 /* ============================================================
-   Neon Terminal — duakilo.net Custom Theme
-   Overrides Blowfish slate scheme with modern developer aesthetic
+   Are.na Raw — Brutalist honest web aesthetic for duakilo.net
+   White ground. Black ink. Browser-default links. System fonts.
+   No radius. No shadow. No gradient. No animation.
    ============================================================ */
 
 /* ── Color System Override ── */
 :root {
-  /* Backgrounds: near-black with blue undertone */
-  --color-neutral: 11, 15, 25;
-  --color-neutral-50: 17, 24, 39;
-  --color-neutral-100: 31, 41, 55;
-  --color-neutral-200: 55, 65, 81;
-  --color-neutral-300: 107, 114, 128;
-  --color-neutral-400: 156, 163, 175;
-  --color-neutral-500: 75, 85, 99;
-  --color-neutral-600: 156, 163, 175;
-  --color-neutral-700: 209, 213, 219;
-  --color-neutral-800: 243, 244, 246;
-  --color-neutral-900: 249, 250, 251;
+  --color-neutral: 255, 255, 255;
+  --color-neutral-50: 255, 255, 255;
+  --color-neutral-100: 250, 250, 250;
+  --color-neutral-200: 240, 240, 240;
+  --color-neutral-300: 224, 224, 224;
+  --color-neutral-400: 189, 189, 189;
+  --color-neutral-500: 158, 158, 158;
+  --color-neutral-600: 117, 117, 117;
+  --color-neutral-700: 97, 97, 97;
+  --color-neutral-800: 66, 66, 66;
+  --color-neutral-900: 33, 33, 33;
 
-  /* Primary: Emerald/Teal */
-  --color-primary-50: 236, 253, 245;
-  --color-primary-100: 209, 250, 229;
-  --color-primary-200: 167, 243, 208;
-  --color-primary-300: 110, 231, 183;
-  --color-primary-400: 52, 211, 153;
-  --color-primary-500: 16, 185, 129;
-  --color-primary-600: 5, 150, 105;
-  --color-primary-700: 4, 120, 87;
-  --color-primary-800: 6, 95, 70;
-  --color-primary-900: 6, 78, 59;
-
-  /* Secondary: Cyan accent */
-  --color-secondary-50: 236, 254, 255;
-  --color-secondary-100: 207, 250, 254;
-  --color-secondary-200: 165, 243, 252;
-  --color-secondary-300: 103, 232, 249;
-  --color-secondary-400: 34, 211, 238;
-  --color-secondary-500: 6, 182, 212;
-  --color-secondary-600: 8, 145, 178;
-  --color-secondary-700: 14, 116, 144;
-  --color-secondary-800: 22, 78, 99;
-  --color-secondary-900: 22, 78, 99;
+  --color-primary-50: 240, 240, 255;
+  --color-primary-100: 224, 224, 255;
+  --color-primary-200: 200, 200, 255;
+  --color-primary-300: 160, 160, 255;
+  --color-primary-400: 100, 100, 255;
+  --color-primary-500: 0, 0, 238;
+  --color-primary-600: 0, 0, 200;
+  --color-primary-700: 0, 0, 160;
+  --color-primary-800: 0, 0, 120;
+  --color-primary-900: 0, 0, 80;
 }
 
-/* ── Dark Mode Base ── */
-html.dark {
-  color-scheme: dark;
-  background-color: #0B0F19 !important;
+/* ── Force Light Mode Everywhere ── */
+html.dark,
+html:not(.dark) {
+  color-scheme: light;
+  background-color: #FFFFFF !important;
 }
 
-html.dark body {
-  background-color: #0B0F19 !important;
-  color: #F9FAFB;
-}
-
+html.dark body,
 html:not(.dark) body {
-  background-color: #0f172a !important;
-  color: #F9FAFB;
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
 }
 
-/* ── Typography ── */
+/* ── Typography: System Fonts Only ── */
 h1, h2, h3, h4, h5, h6,
-.font-mono,
+.profile-name,
 .article-link--card h2,
-.profile-name {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace !important;
-  letter-spacing: -0.02em;
+.prose h1, .prose h2, .prose h3, .prose h4,
+#single_header h1,
+article > header h1,
+h3.text-2xl.font-bold {
+  font-family: Times, Georgia, "Times New Roman", serif !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  letter-spacing: normal !important;
 }
 
-/* ── Mesh Gradient Background ── */
-html.dark body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(52, 211, 153, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
-  animation: meshMove 20s ease-in-out infinite;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
-@keyframes meshMove {
-  0%, 100% { background-position: 0% 50%, 100% 0%, 50% 100%; }
-  50% { background-position: 100% 50%, 0% 100%, 50% 0%; }
+/* ── Links: Browser-Default ── */
+a {
+  color: #0000EE !important;
+  text-decoration: underline !important;
 }
 
-/* ── Floating Pill Navigation ── */
+a:visited {
+  color: #551A8B !important;
+}
+
+a:hover {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+}
+
+/* Article card title links: black, underline on hover */
+.article-link--card a,
+.article-link--card h2 a {
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+.article-link--card a:hover,
+.article-link--card h2 a:hover {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+}
+
+/* ── Navigation: Simple Static ── */
 .fixed.inset-x-0.z-100 {
-  position: fixed;
-  top: 1.25rem !important;
-  left: 50% !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
   right: auto !important;
-  transform: translateX(-50%) !important;
-  width: auto !important;
-  max-width: 90vw;
-  z-index: 100;
+  transform: none !important;
+  width: 100% !important;
+  border-bottom: 1px solid #CCCCCC;
 }
 
 .fixed.inset-x-0.z-100 > div:first-child {
@@ -104,413 +105,368 @@ html.dark body::before {
 }
 
 .fixed.inset-x-0.z-100 > div.relative {
-  background: rgba(11, 15, 25, 0.85) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  border-radius: 9999px !important;
-  padding: 0.5rem 1.25rem !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+  background: #FFFFFF !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.75rem 1.5rem !important;
   margin: 0 !important;
   max-width: none !important;
 }
 
 .fixed.inset-x-0.z-100 .main-menu {
   padding: 0 !important;
-  gap: 0.5rem !important;
 }
 
 .fixed.inset-x-0.z-100 .main-menu a {
-  color: #9CA3AF !important;
-  font-weight: 500 !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 9999px !important;
-  transition: all 0.2s ease !important;
+  color: #000000 !important;
+  font-weight: 400 !important;
+  padding: 0.25rem 0.75rem !important;
+  border-radius: 0 !important;
+  text-decoration: underline !important;
 }
 
 .fixed.inset-x-0.z-100 .main-menu a:hover,
 .fixed.inset-x-0.z-100 .main-menu a.active {
-  color: #10B981 !important;
-  background: rgba(16, 185, 129, 0.1) !important;
+  color: #0000EE !important;
+  background: none !important;
 }
 
-/* Hide site title in floating nav */
+/* Site title in header */
 .fixed.inset-x-0.z-100 .main-menu > a:first-child,
 .fixed.inset-x-0.z-100 .main-menu .truncate {
-  display: none !important;
+  display: inline !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+  font-weight: 400 !important;
 }
 
-/* Spacer below floating nav */
+/* Remove spacer below nav */
 .min-h-\[148px\] {
-  min-height: 80px !important;
+  min-height: 0 !important;
 }
 
 /* ── Profile Hero ── */
 .profile-name {
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: clamp(2.5rem, 8vw, 5rem) !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.03em !important;
-  background: linear-gradient(135deg, #10B981 0%, #34D399 40%, #6EE7B7 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  color: transparent !important;
-  line-height: 1.1 !important;
+  font-family: Times, Georgia, serif !important;
+  font-size: 3rem !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: none !important;
+  line-height: 1.2 !important;
 }
 
 .profile-headline {
-  color: #9CA3AF !important;
+  color: #555555 !important;
   font-size: 1.125rem !important;
-  letter-spacing: 0.05em !important;
   font-weight: 400 !important;
+  letter-spacing: normal !important;
 }
 
 .profile-bio {
-  color: #6B7280 !important;
+  color: #666666 !important;
 }
 
-/* ── Glass Cards ── */
+/* ── Cards: Flat Rectangles ── */
 .article-link--card {
-  background: rgba(17, 24, 39, 0.6) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  border-radius: 16px !important;
-  transition: all 0.3s ease !important;
-  overflow: hidden !important;
+  background: #FFFFFF !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #CCCCCC !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: none !important;
+  padding: 1rem !important;
 }
 
 .article-link--card:hover {
-  border-color: rgba(16, 185, 129, 0.25) !important;
-  box-shadow: 0 0 40px rgba(16, 185, 129, 0.06) !important;
-  transform: translateY(-3px) !important;
+  border-color: #999999 !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 .article-link--card h2 {
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 1rem !important;
-  font-weight: 500 !important;
+  font-family: Times, Georgia, serif !important;
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
   line-height: 1.4 !important;
 }
 
-.article-link--card a.decoration-primary-500 {
-  color: #F9FAFB !important;
+/* ── Tags: Plain Text ── */
+a[href*="/tags/"] span,
+a[href*="/categories/"] span,
+.article-link--card span[class*="rounded-md"],
+.article-link--card span[class*="border-primary"],
+.article-link--card span[class*="border-secondary"],
+#single_header span[class*="rounded-md"],
+#single_header span[class*="border-primary"],
+#single_header span[class*="border-secondary"],
+.flex.flex-row.flex-wrap span[class*="rounded-md"] {
+  background: none !important;
+  border: none !important;
+  color: #0000EE !important;
+  font-family: system-ui, sans-serif !important;
+  font-size: 0.875rem !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  text-decoration: underline !important;
+  transition: none !important;
+  box-shadow: none !important;
 }
 
-.article-link--card a:hover {
-  text-decoration: none !important;
-  color: #34D399 !important;
+a[href*="/tags/"]:hover span,
+a[href*="/categories/"]:hover span,
+.article-link--card a:hover span[class*="rounded-md"],
+#single_header a:hover span[class*="rounded-md"] {
+  background: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #551A8B !important;
 }
 
-/* ── Neon Tags ── */
-.badge,
-.badge a,
-.taxonomy-tag,
-.article-tags a,
-.tag {
-  background: rgba(16, 185, 129, 0.1) !important;
-  border: 1px solid rgba(16, 185, 129, 0.2) !important;
-  color: #34D399 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 0.6875rem !important;
-  padding: 0.2rem 0.6rem !important;
-  border-radius: 9999px !important;
-  transition: all 0.2s ease !important;
-}
-
-.badge:hover,
-.taxonomy-tag:hover,
-.article-tags a:hover {
-  background: rgba(16, 185, 129, 0.2) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15) !important;
-}
-
-/* ── Terminal Code Blocks ── */
+/* ── Code Blocks: Plain ── */
 .chroma,
 .prose pre,
 .highlight pre {
-  background: #0D1117 !important;
-  border: 1px solid #30363D !important;
-  border-radius: 12px !important;
+  background: #F5F5F5 !important;
+  border: 1px solid #CCCCCC !important;
+  border-radius: 0 !important;
   position: relative !important;
 }
 
 .prose pre::before,
 .highlight pre::before {
-  content: "● ● ●";
-  color: #484F58;
-  position: absolute;
-  top: 0.6rem;
-  left: 1rem;
-  font-size: 0.5rem;
-  letter-spacing: 0.5rem;
-  z-index: 2;
+  content: none !important;
 }
 
 .prose pre code,
-.highlight pre code {
-  padding-top: 1.75rem !important;
-  display: block !important;
-}
-
+.highlight pre code,
 .chroma code {
-  padding-top: 1.75rem !important;
+  padding-top: 1rem !important;
   display: block !important;
 }
 
 .prose code,
 .prose :not(pre) > code {
-  background: rgba(16, 185, 129, 0.1) !important;
-  color: #34D399 !important;
-  border: 1px solid rgba(16, 185, 129, 0.15) !important;
-  border-radius: 6px !important;
-  padding: 0.15rem 0.4rem !important;
-  font-family: 'JetBrains Mono', monospace !important;
+  background: #F5F5F5 !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0.15rem 0.3rem !important;
+  font-family: monospace !important;
   font-size: 0.85em !important;
 }
 
-/* ── Reading Progress Bar ── */
+/* ── Reading Progress: Hidden ── */
 .reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #10B981, #34D399);
-  z-index: 200;
-  width: 0%;
-  transition: width 0.1s linear;
+  display: none !important;
 }
 
 /* ── Article Meta ── */
 .text-sm.text-neutral-500,
 .text-neutral-500,
 .dark\:text-neutral-400 {
-  color: #6B7280 !important;
+  color: #666666 !important;
 }
 
-/* ── Section Headers ── */
-section h2 {
-  font-family: 'JetBrains Mono', monospace !important;
+/* ── Article Content ── */
+.prose p {
+  color: #333333 !important;
+  line-height: 1.6 !important;
+}
+
+.prose strong {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+.prose blockquote {
+  border-left: 2px solid #000000 !important;
+  background: none !important;
+  border-radius: 0 !important;
+  padding-left: 1rem !important;
+}
+
+.prose hr {
+  border-color: #CCCCCC !important;
+}
+
+.prose table th {
+  background: #F5F5F5 !important;
+  color: #000000 !important;
+  font-family: Times, Georgia, serif !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+.prose table td {
+  border-color: #CCCCCC !important;
 }
 
 /* ── Footer ── */
 footer,
 .footer {
-  color: #6B7280 !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #666666 !important;
+  border-top: 1px solid #CCCCCC !important;
 }
 
-/* ── Links ── */
-a:hover {
-  color: #34D399 !important;
-}
-
-/* ── Scrollbar ── */
+/* ── Scrollbar: Minimal ── */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F19;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border-radius: 4px;
+  background: #CCCCCC;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
-}
-
-/* ── Show More Button ── */
-.mt-10.flex.justify-center button,
-a[href*="/posts/"] button {
-  background: transparent !important;
-  border: 1px solid rgba(16, 185, 129, 0.3) !important;
-  color: #34D399 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 0.875rem !important;
-  border-radius: 9999px !important;
-  padding: 0.5rem 1.5rem !important;
-  transition: all 0.2s ease !important;
-}
-
-.mt-10.flex.justify-center button:hover,
-a[href*="/posts/"] button:hover {
-  background: rgba(16, 185, 129, 0.1) !important;
-  border-color: rgba(16, 185, 129, 0.5) !important;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1) !important;
+  background: #999999;
 }
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(16, 185, 129, 0.3);
-  color: #F9FAFB;
+  background: #000000;
+  color: #FFFFFF;
 }
 
 /* ── Mobile Menu ── */
 .md\:hidden button {
-  color: #9CA3AF !important;
+  color: #000000 !important;
 }
 
 .md\:hidden button:hover {
-  color: #10B981 !important;
+  color: #0000EE !important;
 }
 
 /* ── Search Modal ── */
 #search-modal {
-  background: rgba(11, 15, 25, 0.95) !important;
-  backdrop-filter: blur(16px) !important;
+  background: #FFFFFF !important;
+  backdrop-filter: none !important;
 }
 
 #search-modal input {
-  background: rgba(17, 24, 39, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #F9FAFB !important;
-  border-radius: 12px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #CCCCCC !important;
+  color: #000000 !important;
+  border-radius: 0 !important;
 }
 
 #search-modal input:focus {
-  border-color: rgba(16, 185, 129, 0.4) !important;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
-}
-
-/* ── Article Content ── */
-#single_header h1,
-article > header h1,
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4 {
-  font-family: 'JetBrains Mono', monospace !important;
-  color: #F9FAFB !important;
-}
-
-#single_header h1 {
-  font-size: 2.5rem !important;
-  line-height: 1.2 !important;
-}
-
-.prose p {
-  color: #D1D5DB !important;
-}
-
-.prose strong {
-  color: #F9FAFB !important;
-}
-
-.prose blockquote {
-  border-left-color: #10B981 !important;
-  background: rgba(16, 185, 129, 0.05) !important;
-  border-radius: 0 8px 8px 0 !important;
-}
-
-.prose hr {
-  border-color: rgba(255, 255, 255, 0.06) !important;
-}
-
-.prose table th {
-  background: rgba(16, 185, 129, 0.08) !important;
-  color: #34D399 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-}
-
-.prose table td {
-  border-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
 }
 
 /* ── Pagination ── */
 .pagination a,
 .pagination span {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #9CA3AF !important;
+  border-color: #CCCCCC !important;
+  color: #0000EE !important;
 }
 
 .pagination a:hover {
-  background: rgba(16, 185, 129, 0.1) !important;
-  color: #34D399 !important;
-  border-color: rgba(16, 185, 129, 0.3) !important;
+  background: #F5F5F5 !important;
+  color: #0000EE !important;
+  border-color: #999999 !important;
 }
 
 /* ── TOC ── */
 #TableOfContents a {
-  color: #9CA3AF !important;
+  color: #0000EE !important;
+  text-decoration: underline !important;
 }
 
 #TableOfContents a:hover {
-  color: #34D399 !important;
+  color: #551A8B !important;
 }
 
 /* ── Breadcrumbs ── */
 .breadcrumbs a {
-  color: #6B7280 !important;
+  color: #0000EE !important;
+  text-decoration: underline !important;
 }
 
 .breadcrumbs a:hover {
-  color: #34D399 !important;
+  color: #551A8B !important;
 }
 
 /* ── Scroll to Top ── */
 #scroll-to-top {
-  background: rgba(16, 185, 129, 0.15) !important;
-  border: 1px solid rgba(16, 185, 129, 0.25) !important;
-  color: #34D399 !important;
-  backdrop-filter: blur(8px) !important;
+  background: #FFFFFF !important;
+  border: 1px solid #CCCCCC !important;
+  color: #000000 !important;
+  backdrop-filter: none !important;
+  border-radius: 0 !important;
 }
 
 #scroll-to-top:hover {
-  background: rgba(16, 185, 129, 0.25) !important;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15) !important;
+  background: #F5F5F5 !important;
+  box-shadow: none !important;
 }
 
-/* ── Hero Section Spacing ── */
-article.flex.flex-col.items-center.justify-center {
-  min-height: 50vh !important;
-  padding-top: 3rem !important;
+/* ── Show More Button ── */
+.mt-10.flex.justify-center button,
+a[href*="/posts/"] button {
+  background: #FFFFFF !important;
+  border: 1px solid #CCCCCC !important;
+  color: #000000 !important;
+  font-family: system-ui, sans-serif !important;
+  font-size: 0.875rem !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1rem !important;
+  transition: none !important;
 }
 
-/* ── Author Links ── */
-.author-links a {
-  color: #6B7280 !important;
-  transition: color 0.2s ease !important;
-}
-
-.author-links a:hover {
-  color: #10B981 !important;
+.mt-10.flex.justify-center button:hover,
+a[href*="/posts/"] button:hover {
+  background: #F5F5F5 !important;
+  border-color: #999999 !important;
+  box-shadow: none !important;
 }
 
 /* ── List Year Headers ── */
 h3.text-2xl.font-bold {
-  font-family: 'JetBrains Mono', monospace !important;
-  color: #9CA3AF !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  font-family: Times, Georgia, serif !important;
+  color: #000000 !important;
+  border-bottom: 1px solid #CCCCCC !important;
   padding-bottom: 0.5rem !important;
   margin-bottom: 1.5rem !important;
 }
 
-/* ── Animations ── */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ── Author Links ── */
+.author-links a {
+  color: #0000EE !important;
+  text-decoration: underline !important;
 }
 
-.article-link--card {
-  animation: fadeInUp 0.5s ease forwards;
+.author-links a:hover {
+  color: #551A8B !important;
 }
 
-/* Stagger card animations */
-.w-full.grid > .article-link--card:nth-child(1) { animation-delay: 0.05s; }
-.w-full.grid > .article-link--card:nth-child(2) { animation-delay: 0.1s; }
-.w-full.grid > .article-link--card:nth-child(3) { animation-delay: 0.15s; }
-.w-full.grid > .article-link--card:nth-child(4) { animation-delay: 0.2s; }
-.w-full.grid > .article-link--card:nth-child(5) { animation-delay: 0.25s; }
-.w-full.grid > .article-link--card:nth-child(6) { animation-delay: 0.3s; }
+/* ── Remove All Animations ── */
+.article-link--card,
+.glass-card,
+.reveal {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Hero Section Spacing ── */
+article.flex.flex-col.items-center.justify-center {
+  min-height: auto !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* ── Section Headers ── */
+section h2 {
+  font-family: Times, Georgia, serif !important;
+  color: #000000 !important;
+}
