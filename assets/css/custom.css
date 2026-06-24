@@ -470,3 +470,80 @@ section h2 {
   font-family: Times, Georgia, serif !important;
   color: #000000 !important;
 }
+
+/* ── Dense List ── */
+.dense-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dense-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.dense-item:last-child {
+  border-bottom: none;
+}
+
+.dense-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.dense-title {
+  font-family: Times, Georgia, serif !important;
+  font-size: 1rem !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+  flex: 1;
+}
+
+.dense-title:hover {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+}
+
+.dense-date {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-size: 0.8125rem !important;
+  color: #888888 !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dense-tags {
+  margin-top: 0.1rem;
+  font-size: 0.8125rem;
+}
+
+.dense-tags a {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+  margin-right: 0.5rem;
+}
+
+.dense-tags a:hover {
+  color: #551A8B !important;
+}
+
+/* ── Footer Links ── */
+.footer-links {
+  font-size: 0.875rem;
+}
+
+.footer-links a {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+}
+
+.footer-links a:hover {
+  color: #551A8B !important;
+}
+
+.footer-links span {
+  color: #999999;
+  margin: 0 0.25rem;
+}

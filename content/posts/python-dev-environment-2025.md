@@ -7,7 +7,6 @@ categories: ["dev-tools"]
 draft: false
 showHero: false
 showTableOfContents: true
-showReadingTime: true
 ---
 
 Tiap kali mulai project Python baru, ada satu pertanyaan yang selalu muncul: versi Python yang mana, dan environment-nya diisolasi pakai apa? Dulu jawabannya berantakan — system Python, virtualenv manual, kadang conda, kadang pip biasa. Sekarang kombinasi yang paling masuk akal ada tiga: **pyenv** untuk version Python, **uv** untuk dependency dan virtualenv, **VS Code** sebagai editor yang menyatukan semuanya. Tulisan ini menjabarkan setup-nya dari nol sampai siap kerja.

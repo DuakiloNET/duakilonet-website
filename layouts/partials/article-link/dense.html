@@ -1,0 +1,11 @@
+<article class="dense-item">
+  <div class="dense-row">
+    <a href="{{ .RelPermalink }}" class="dense-title">{{ .Title }}</a>
+    <span class="dense-date">{{ .Date.Format "2006-01-02" }}</span>
+  </div>
+  {{ with .Params.tags }}
+  <div class="dense-tags">
+    {{ range . }}<a href="/tags/{{ . | urlize }}/">{{ . }}</a>{{ end }}
+  </div>
+  {{ end }}
+</article>

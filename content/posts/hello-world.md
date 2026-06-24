@@ -7,7 +7,6 @@ categories: ["general"]
 draft: false
 showHero: false
 showTableOfContents: false
-showReadingTime: true
 ---
 
 Every developer blog starts the same way: a blank page, a cursor blinking, and the quiet pressure of writing something worth reading.

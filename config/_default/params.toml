@@ -36,7 +36,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showRecentItems = 5
   showMoreLink = true
   showMoreLinkDest = "/posts/"
-cardView = true
+cardView = false
   cardViewScreenWidth = false
 
 [article]
@@ -57,14 +57,8 @@ cardView = true
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = true
-  showTableOfContents = true
-  showTaxonomies = true
-  showCategories = true
-  showTags = true
-  showCategoriesInSecondaryColor = false
-  showAuthorsBadges = false
-  showWordCount = true
+  showReadingTime = false
+  showWordCount = false
   showZenMode = false
 
 [list]

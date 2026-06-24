@@ -7,7 +7,6 @@ categories: ["dev-tools"]
 draft: false
 showHero: false
 showTableOfContents: true
-showReadingTime: true
 ---
 
 Kalau kamu developer Python, setup environment sebelum mulai kerja biasanya terasa seperti ritual: install pyenv, set Python version, buat virtualenv, install pip-tools, compile requirements, baru bisa `pip install`. Belum termasuk kalau pakai Poetry atau PDM.

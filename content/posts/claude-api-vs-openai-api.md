@@ -7,7 +7,6 @@ categories: ["ai-dev"]
 draft: false
 showHero: false
 showTableOfContents: true
-showReadingTime: true
 ---
 
 Kalau kamu developer Python yang baru mulai eksplorasi LLM API, pertanyaan pertama biasanya sama: **Claude atau OpenAI?** Artikel ini bukan marketing piece — ini perbandingan teknis berdasarkan penggunaan nyata.

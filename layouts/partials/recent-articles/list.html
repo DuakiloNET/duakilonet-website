@@ -1,0 +1,8 @@
+{{ $recentArticles := 5 }}
+{{ $recentArticles = .Site.Params.homepage.showRecentItems }}
+
+<section class="dense-list w-full">
+  {{ range first $recentArticles (.Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)).Pages }}
+    {{ partial "article-link/dense.html" . }}
+  {{ end }}
+</section>

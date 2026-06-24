@@ -7,7 +7,6 @@ categories: ["tools"]
 draft: false
 showHero: false
 showTableOfContents: true
-showReadingTime: true
 ---
 
 If you've used Git for more than a week, you've run into this moment: you're on a feature branch, the main branch has moved ahead, and you need to bring in the latest changes.
